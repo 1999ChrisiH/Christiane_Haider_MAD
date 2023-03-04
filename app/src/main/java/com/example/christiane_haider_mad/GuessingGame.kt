@@ -9,7 +9,7 @@ fun main(){
     println("Generating a random 4 digit number...")
     val number: String = generateRandomNumber()
     //println(number)
-    println("Let's begin!")
+    println("Let's begin!" )
     println()
 
     while(true){
