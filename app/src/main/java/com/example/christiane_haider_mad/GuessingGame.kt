@@ -8,7 +8,6 @@ fun main(){
     println()
     println("Generating a random 4 digit number...")
     val number: String = generateRandomNumber()
-    //println(number)
     println("Let's begin!")
     println()
 
@@ -16,18 +15,18 @@ fun main(){
         print("Guess the 4 digit number: ")
         val userInput = readLine()!!
 
-        if(userInput.length != 4 || !isNumeric(userInput)){
+        if(userInput.length != 4 || !isNumeric(guess = userInput)){
             println("Ooops, the number should have FOUR DIGITS (0-9)... Try again!")
             continue
         }
-        if(checkDigits(number = number, guessedNumber = userInput) == 4 && checkPosition(number,userInput) == 4){
+        if(checkDigits(number = number, guessedNumber = userInput) == 4 && checkPosition(number = number, guessedNumber = userInput) == 4){
             println()
             println("CONGRATS! You guessed the right number!")
             break
         }
 
-        val m = checkDigits(number, userInput)
-        val n = checkPosition(number,userInput)
+        val m = checkDigits(number = number, guessedNumber = userInput)
+        val n = checkPosition(number = number, guessedNumber = userInput)
 
         println("$m:$n")
     }
@@ -62,7 +61,7 @@ fun checkDigits(number: String, guessedNumber: String) : Int{
 fun checkPosition(number: String, guessedNumber: String) : Int{
     var rightPlacedDigits: Int = 0
     for(i in 0..3){
-        if(number[i] == guessedNumber[i]){ // und kam nicht schon vor
+        if(number[i] == guessedNumber[i]){
             rightPlacedDigits++
         }
     }
